@@ -17,4 +17,4 @@ This isis the LSST Telescope and Site Wavefront Estimation Pipeline
 Features
 --------
 
-* TODO
+* First convert Andy's code to ts_wep
