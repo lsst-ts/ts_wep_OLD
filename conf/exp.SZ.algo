@@ -1,0 +1,16 @@
+#teleModel(paraxial, onAxis, offAxis)
+PoissonSolver				exp
+Num_of_Zernikes				22
+Num_of_outer_itr                                14
+
+#Zernikes -    0: standard, 1: same as system, others: use as obscuration ratio
+Zernikes      					0
+Increase_resolution				1
+Feedback_gain                                   0.6
+Compensator_mode                        zer
+Compensator_oversample                  1
+OffAxis_poly_order                              10
+Compensation_sequence                   comp_sequ_14.txt
+Boundary_thickness (pixel)			8
+
+

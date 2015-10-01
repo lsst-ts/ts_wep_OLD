@@ -1,0 +1,7 @@
+#Dark Energy Camera on the Blanco telescope:
+# this file is provided by Chuck Claver
+Obscuration 				0.30
+Focal_length (m)			12.0
+Aperture_diameter (m)   		4.0
+Offset (m)				1.5e-3
+Pixel_size (m)				15e-6

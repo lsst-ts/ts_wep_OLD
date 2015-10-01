@@ -1,0 +1,20 @@
+#teleModel(paraxial, onAxis, offAxis)
+PoissonSolver				fft
+Num_of_Zernikes				22
+Num_of_outer_itr			14
+Num_of_inner_itr			6 
+
+#Zernikes -    0: standard, 1: same as system, others: use as obscuration ratio
+Zernikes      				1
+Increase_resolution			1
+#FFT_dimension 999:automatically choose the smallest 2^n larger than the stamp size
+FFT_dimension (pixel)			999 
+Feedback_gain 				0.6 
+Compensator_mode			opd
+Compensator_oversample			1
+OffAxis_poly_order			8
+Boundary_thickness (pixel)		1
+Compensation_sequence  			comp_sequ_14.txt
+Sumclip_sequence			sumclip_sequ_14.txt
+
+
