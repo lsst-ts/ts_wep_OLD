@@ -1,0 +1,8 @@
+#magellan telescope parameters:
+Obscuration 				0.2646
+Focal_length (m)			34.8906
+Aperture_diameter (m)   		6.5024
+Offset (m)					15e-3
+Pixel_size (m)				27e-6
+Mask_param				mask_migrate.txt
+Marginal_fl (m)				9.42693

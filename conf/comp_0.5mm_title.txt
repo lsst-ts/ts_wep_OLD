@@ -1,0 +1,15 @@
+
+ LSST off axis xy grid aberrations
+ Input annular Zernike errors:
+ Z 1     Z 2     Z 3     Z 4     Z 5     Z 6     Z 7     Z 8     Z 9     Z10     Z11     Z12     Z13     Z14     Z15     Z16     Z17     Z18     Z19     Z20     Z21     Z22     Z23     Z24     Z25     Z26     Z27     Z28     Z29     Z30     Z31     Z32    
+ 0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   
+
+annular Zernike coefficients for COMPENSATION:
+
+ 1.21634   -0.79421   -0.79421    0.02575   -0.06552   -0.00000    0.02631    0.02631    0.11716   -0.11716   -0.03950   -0.00000   -0.00048    0.00736   -0.00000   -0.01896   -0.01896    0.02462   -0.02462    0.00162    0.00162   -0.01361    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000   
+
+ Output Aberrations
+x_Height y_Height   x_nHeight   y_nHeight   offset_x   offset_y  offset_rx  offset_ry   focal_x      focal_y      focal_rx    focal_ry    angle    rangle
+chief ray on image      :  (213.52876 ,  213.52876)
+chief ray angle         :    6.34863
+chief ray on focal plane:  (213.48942 ,  213.48942)
