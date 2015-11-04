@@ -4,12 +4,11 @@ from CWFSTask import CWFSTask
 
 class CWFSProcessingTask(luigi.Task):
 
-	def output(self):
-		return
+    def output(self):
+        return
 
-	def requires(self):
-		return CWFSTask()
+    def requires(self):
+        return CWFSTask()
 
     def run(self):
         print "Running Processing Task"
-        

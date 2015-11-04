@@ -1,7 +1,8 @@
 import luigi
 import numpy as np
 from astropy.io import fits
-from WavefrontEstimation.wcs import wcs
+from CWFS.wcs import wcs
+from SRCProcessingTask import SRCProcessingTask
 
 class CWFSTask(luigi.Task):
 
@@ -9,7 +10,7 @@ class CWFSTask(luigi.Task):
 		return
 
 	def requires(self):
-		return
+		return SRCProcessingTask()
 
 	def run(self):
 		#paraxial test
