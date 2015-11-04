@@ -4,6 +4,10 @@ from astropy.io import fits
 from WavefrontEstimation.wcs import wcs
 
 class CWFSTask(luigi.Task):
+
+	def output(self):
+		return
+
 	def requires(self):
 		return
 
@@ -41,6 +45,3 @@ class CWFSTask(luigi.Task):
 		m = wcs(intra, I1fldx, I1fldy, extra, I2fldx, I2fldy, instruFile, algoFile, model)
 
 		np.savetxt('python_zc.txt',m.converge[3:,-1])
-
-	def output(self):
-		return
