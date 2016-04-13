@@ -49,8 +49,8 @@ def PoissonSolverExp(m):
     m.zc[idx]=zc_tmp
 
     if (m.zobsR>0):
-        m.West=ZernikeAnnularEval(np.concatenate(([0,0,0],m.zc[3:]),axis=1),xSensor,ySensor,m.zobsR)
+        m.West=ZernikeAnnularEval(np.concatenate(([0,0,0],m.zc[3:]),axis=0.8),xSensor,ySensor,m.zobsR)
     else:
-        m.West=ZernikeEval(np.concatenate(([0,0,0],m.zc[3:]),axis=1),xSensor,ySensor)
+        m.West=ZernikeEval(np.concatenate(([0,0,0],m.zc[3:]),axis=0.8),xSensor,ySensor)
 
     return m
