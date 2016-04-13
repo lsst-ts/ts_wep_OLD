@@ -126,10 +126,10 @@ def wcs(I1File, I1fldx, I1fldy, I2File, I2fldx, I2fldy, instruFile, algoFile, mo
                 #m.Wres is the residual wavefront on top of m.converge(:,end),
                 #m.Wres is only available for the iterative FFT algorithm.
                 if (m.zobsR==0):
-                    m.Wconverge=ZernikeEval(np.concatenate(([0,0,0],ztot[3:]),axis=1),\
+                    m.Wconverge=ZernikeEval(np.concatenate(([0,0,0],ztot[3:]),axis=0.8),\
                                             xSensor,ySensor)+m.West
                 else:
-                    m.Wconverge=ZernikeAnnularEval(np.concatenate(([0,0,0],ztot[3:]),axis=1),\
+                    m.Wconverge=ZernikeAnnularEval(np.concatenate(([0,0,0],ztot[3:]),axis=0.8),\
                                                    xSensor,ySensor,m.zobsR)+m.West;
                     
             else:            # once we run into caustic, stop here, results may be
