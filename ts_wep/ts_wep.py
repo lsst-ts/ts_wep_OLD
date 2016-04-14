@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import luigi
-from CWFSTask import CWFSTask
+from CWFSProcessingTask import CWFSProcessingTask
 
 def main():
-    luigi.run(['CWFSTask', '--workers', '1', '--local-scheduler'])
+    luigi.run(['CWFSProcessingTask', '--workers', '1', '--local-scheduler'])
 
 if __name__ == '__main__':
     main()

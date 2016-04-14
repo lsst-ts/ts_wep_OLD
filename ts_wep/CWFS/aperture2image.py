@@ -13,10 +13,10 @@ def aperture2image(m,zcCol,lutx,luty,projSamples,atype,fldx,fldy,model):
     elif (atype == 'extra'):
         myC =  m.focalLength*(m.focalLength/m.offset+1)/R**2
 
-    module = __import__ ('WavefrontEstimation.poly%d_2D'%m.offAxisPolyOrder)
+    module = __import__ ('CWFS.poly%d_2D'%m.offAxisPolyOrder)
     polyFunc = getattr(module, 'poly%d_2D'%m.offAxisPolyOrder)
 
-    module = __import__ ('WavefrontEstimation.poly%dGrad'%m.offAxisPolyOrder)
+    module = __import__ ('CWFS.poly%dGrad'%m.offAxisPolyOrder)
     polyGradFunc = getattr(module, 'poly%dGrad'%m.offAxisPolyOrder)
 
     lutr=np.sqrt(lutx**2+luty**2)
@@ -30,7 +30,7 @@ def aperture2image(m,zcCol,lutx,luty,projSamples,atype,fldx,fldy,model):
     idxbound= ((lutr<=1+onepixel) & (lutr>1))#outer boundary (1 pixel wide boundary)
     lutx[idxbound]=lutx[idxbound]/lutr[idxbound]
     luty[idxbound]=luty[idxbound]/lutr[idxbound]
-    idxinbd=((lutr<m.obscuration) & (lutr>m.obscuration-onepixel)) #inner boundary 
+    idxinbd=((lutr<m.obscuration) & (lutr>m.obscuration-onepixel)) #inner boundary
     lutx[idxinbd] = lutx[idxinbd]/lutr[idxinbd]*m.obscuration
     luty[idxinbd] = luty[idxinbd]/lutr[idxinbd]*m.obscuration
 
@@ -53,8 +53,8 @@ def aperture2image(m,zcCol,lutx,luty,projSamples,atype,fldx,fldy,model):
         lutyp = luty
     elif (model == 'onAxis'):
         myA=np.sqrt((m.focalLength**2-R**2)/(m.focalLength**2-lutr**2*R**2))
-        lutxp = m.maskScalingFactor*myA*lutx 
-        lutyp = m.maskScalingFactor*myA*luty 
+        lutxp = m.maskScalingFactor*myA*lutx
+        lutyp = m.maskScalingFactor*myA*luty
     elif (model=='offAxis'):
         #nothing is hard-coded here: (1e-3) is because the
         # offAxis correction param files are based on offset=1.0mm
@@ -115,10 +115,10 @@ def aperture2image(m,zcCol,lutx,luty,projSamples,atype,fldx,fldy,model):
     if (zcCol.ndim ==1):
         if (model == 'paraxial'):
             if (m.zobsR>0):
-                J= (1+ myC * ZernikeAnnularJacobian(zcCol, lutx, luty,m.zobsR, '1st') + 
+                J= (1+ myC * ZernikeAnnularJacobian(zcCol, lutx, luty,m.zobsR, '1st') +
                     myC**2 * ZernikeAnnularJacobian(zcCol, lutx, luty,m.zobsR, '2nd'))
             else:
-                J= (1+ myC * ZernikeJacobian(zcCol, lutx, luty, '1st') + 
+                J= (1+ myC * ZernikeJacobian(zcCol, lutx, luty, '1st') +
                     myC**2 * ZernikeJacobian(zcCol, lutx, luty, '2nd'))
 
         elif (model == 'onAxis'):
@@ -145,7 +145,7 @@ def aperture2image(m,zcCol,lutx,luty,projSamples,atype,fldx,fldy,model):
             J= ( xpox*ypoy - xpoy*ypox)
 
     else:
-    
+
         FXX, FXY =gradient(FX,m.sensorFactor/(m.sensorSamples/2))
         tmp, FYY =gradient(FY,m.sensorFactor/(m.sensorSamples/2))
         if (model == 'paraxial'):
@@ -163,7 +163,7 @@ def aperture2image(m,zcCol,lutx,luty,projSamples,atype,fldx,fldy,model):
             ypoy = polyGradFunc(cy,lutx,luty,'dy')*reduced_coordi_factor  +myC* FYY
             xpoy = polyGradFunc(cx,lutx,luty,'dy')*reduced_coordi_factor  +myC* FXY
             ypox = polyGradFunc(cy,lutx,luty,'dx')*reduced_coordi_factor  +myC* FXY
-        
+
         J= ( xpox*ypoy - xpoy*ypox)
 
     return lutxp, lutyp, J
